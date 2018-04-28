@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         bTopSongs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context:MainActivity.this, text:"TODO", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "TODO", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
