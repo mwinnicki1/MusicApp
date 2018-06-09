@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MusicApp.iml" filepath="$PROJECT_DIR$/.idea/MusicApp.iml" />
-      <module fileurl="file://C:\Users\W57094\Desktop\projekt2\MusicApp\MusicApp.iml" filepath="C:\Users\W57094\Desktop\projekt2\MusicApp\MusicApp.iml" />
+      <module fileurl="file://C:\Users\W57094\Desktop\projekt3\MusicApp\MusicApp.iml" filepath="C:\Users\W57094\Desktop\projekt3\MusicApp\MusicApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\W57094\Desktop\projekt2\MusicApp\app\app.iml" filepath="C:\Users\W57094\Desktop\projekt2\MusicApp\app\app.iml" />
+      <module fileurl="file://C:\Users\W57094\Desktop\projekt3\MusicApp\app\app.iml" filepath="C:\Users\W57094\Desktop\projekt3\MusicApp\app\app.iml" />
     </modules>
   </component>
 </project>
