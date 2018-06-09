@@ -1,14 +1,14 @@
 package com.example.stud.musicapp.topsongs;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.example.stud.musicapp.MainActivity;
 import com.example.stud.musicapp.R;
+
+
 import com.example.stud.musicapp.api.ApiService;
 import com.example.stud.musicapp.api.TrendingList;
 import com.google.gson.Gson;
@@ -17,15 +17,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class TopSongsActivity extends AppCompatActivity {
 
     RecyclerView rvList;
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,29 +28,30 @@ public class TopSongsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         rvList = findViewById(R.id.rvList);
 
-        Call<TrendingList> trendingListCall = ApiService. getService ().getTrendingList( "us" ,
-                "itunes" , "singles" );
-        trendingListCall.enqueue( new Callback<TrendingList>() {
+        Call<TrendingList> trendingListCall = ApiService.getService().getTrendingList("us",
+                "itunes", "singles");
+        trendingListCall.enqueue(new Callback<TrendingList>() {
             @Override
             public void onResponse(@NonNull Call<TrendingList> call, @NonNull
                     Response<TrendingList> response) {
                 TrendingList trendingList = response.body();
-                Log. d ( "TAG" , new Gson().toJson(trendingList));
+                Log.d("TAG", new Gson().toJson(trendingList));
             }
+
             @Override
-            public void onFailure( @NonNull Call<TrendingList> call, Throwable t) {
-                Toast. makeText (TopSongsActivity.this , "Blad pobierania danych: " +
-                        t.getLocalizedMessage(), Toast. LENGTH_SHORT ).show();
+            public void onFailure(@NonNull Call<TrendingList> call, Throwable t) {
+                Toast.makeText(TopSongsActivity.this, "Blad pobierania danych: " +
+                        t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
 
-
-
+        return true;
+    }
 }
