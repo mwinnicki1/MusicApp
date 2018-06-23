@@ -3,6 +3,8 @@ package com.example.stud.musicapp.topsongs;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.ImageView;
@@ -42,13 +44,20 @@ public class SongDetailsActivity extends AppCompatActivity {
                     showData(tracks.track.get(0));
                 }
             }
-
             @Override
             public void onFailure(Call<Tracks> call, Throwable t) {
                 Toast.makeText(SongDetailsActivity.this, "Bład pobierania danych" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.favorite_menu, menu);
+        return true;
+    }
+
     private void showData(Track track) {
         TextView tvAlbum = findViewById(R.id.tvAlbum);
         TextView tvGenre = findViewById(R.id.tvGenre);
