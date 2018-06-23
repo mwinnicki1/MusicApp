@@ -11,5 +11,5 @@ public interface ApiClient {
             String type, @Query("format") String format);
 
     @GET("track.php")
-    Call<Track> getTrack(@Query("h") int trackId);
+    Call<Tracks> getTrack(@Query("h") int trackId);
 }
