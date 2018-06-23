@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 import android.widget.TextView;
+import android.widget.ImageView;
 import com.example.stud.musicapp.R;
 import com.example.stud.musicapp.api.ApiService;
 import com.example.stud.musicapp.api.Track;
 import com.example.stud.musicapp.api.Tracks;
 
+import com.bumptech.glide.Glide;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,6 +59,11 @@ public class SongDetailsActivity extends AppCompatActivity {
         tvGenre.setText(track.strGenre);
         tvStyle.setText(track.strStyle);
         tvDescription.setText(track.strDescriptionEN);
+
+        if (track.strTrackThumb != null && !track.strTrackThumb.isEmpty()) {
+            ImageView ivThumb = findViewById(R.id.ivThumb);
+            Glide.with(this).load(track.strTrackThumb).into(ivThumb);
+        }
 
     }
 }
