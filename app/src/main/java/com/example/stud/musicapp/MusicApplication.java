@@ -5,9 +5,7 @@ import android.app.Application;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-/**
- * Created by W57094 on 2018-06-30.
- */
+
 
 public class MusicApplication extends Application {
     @Override
