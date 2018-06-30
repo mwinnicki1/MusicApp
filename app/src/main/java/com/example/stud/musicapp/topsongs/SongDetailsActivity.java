@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.ImageView;
@@ -69,6 +70,19 @@ public class SongDetailsActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.itemFavorite:
+                addRemoveFavourite();
+                return true;
+                default:
+                    return super .onOptionsItemSelected(item);
+        }
+
+
+    }
+
     private void addRemoveFavourite() {
         Realm realm = Realm.getDefaultInstance();
         Favorite favorite = realm
@@ -79,11 +93,11 @@ public class SongDetailsActivity extends AppCompatActivity {
         if(favorite == null){
             addToFavorites(realm);
         } else {
-            removeFromFavorites(realm);
+            removeFromFavorites(realm, favorite);
         }
     }
 
-    private void removeFromFavorites(Realm realm, Final Favorite favorite) {
+    private void removeFromFavorites(Realm realm, final Favorite favorite) {
         realm.executeTransaction( new Realm.Transaction() {
             @Override
             public void execute( @NonNull Realm realm) {

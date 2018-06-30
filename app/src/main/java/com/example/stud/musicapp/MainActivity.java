@@ -34,5 +34,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button bFavorites = findViewById(R.id.bFavorites);
+        bFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, com.example.stud.musicapp.Favorites.FavoritesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
